@@ -9,3 +9,6 @@ wheels/
 
 # Virtual environments
 .venv
+*.csv
+h&m dataset/*.csv
+h&m dataset/*.csv
