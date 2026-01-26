@@ -10,7 +10,6 @@ articles = pd.read_csv("articles_hm.csv")
 
 ```python
 articles.info()
-
 ```
 
     <class 'pandas.DataFrame'>
@@ -81,54 +80,9 @@ plt.title("Distribution of Club Member Status")
 plt.show()
 ```
 
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    
-
 
     
-![png](01_articles_preprocessing_files/01_articles_preprocessing_3_1.png)
+![png](01_articles_preprocessing_files/01_articles_preprocessing_3_0.png)
     
 
 
@@ -160,8 +114,6 @@ plt.show()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme(style="whitegrid")
-plt.rc('font', family='NanumBarunGothic')
 
 # 1. 상품 그룹(product_group_name)별 분포 확인
 plt.figure(figsize=(12, 6))
@@ -179,155 +131,15 @@ plt.ylabel('')
 plt.show()
 ```
 
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
+
     
+![png](01_articles_preprocessing_files/01_articles_preprocessing_5_0.png)
+    
+
 
 
     
 ![png](01_articles_preprocessing_files/01_articles_preprocessing_5_1.png)
-    
-
-
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    findfont: Font family 'NanumBarunGothic' not found.
-    
-
-
-    
-![png](01_articles_preprocessing_files/01_articles_preprocessing_5_3.png)
     
 
 
@@ -375,7 +187,7 @@ import seaborn as sns
 import pandas as pd
 
 # 폰트 깨짐 방지를 위한 설정 (Windows 기준 Malgun Gothic)
-plt.rc('font', family='Malgun Gothic') 
+plt.rc('font', family='Malgun Gothic')
 plt.rc('axes', unicode_minus=False)
 
 #[transactions]
