@@ -332,7 +332,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 sns.countplot(data=customer, x='club_member_status')
-plt.title("Distribution of Club Member Status")
+plt.title("회원 상태 비율")
 plt.show()
 ```
 
@@ -370,11 +370,13 @@ plt.show()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+plt.rc('font', family='Malgun Gothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 # 1. 상품 그룹(product_group_name)별 분포 확인
 plt.figure(figsize=(12, 6))
 sns.countplot(data=df_art, y='product_group_name', order=df_art['product_group_name'].value_counts().index)
-plt.title('df_art: Distribution by Product Group', fontsize=15)   #상품 그룹별 데이터 분포
+plt.title('제품 그룹 별 분포', fontsize=15)  
 plt.xlabel('Count') #상품 수
 plt.ylabel('Group Name')    #그룹명
 plt.show()
@@ -382,7 +384,7 @@ plt.show()
 # 2. 가설 검증용: index_group_name(타겟층) 분포 확인
 plt.figure(figsize=(10, 5))
 df_art['index_group_name'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
-plt.title('df_art: Target Segment Share (Ladies/Mens/Baby)')
+plt.title('카테고리 분포 확인')
 plt.ylabel('')
 plt.show()
 ```
