@@ -508,7 +508,7 @@ sns.histplot(customer['age'], bins=40, kde=True, color='#2ecc71')
 plt.axvline(25, color='red', linestyle='--', label='MZ 타겟 (20대)') 
 plt.axvline(50, color='blue', linestyle='--', label='Active Senior (50대)')
 
-plt.title('Customer: 고객 연령층 분포 (우리 항해의 타겟은?)', fontsize=16)
+plt.title('Customer: 고객 연령층 분포 (우리 타겟은?)', fontsize=16)
 plt.xlabel('나이(Age)')
 plt.ylabel('고객 수')
 plt.legend()
@@ -640,13 +640,14 @@ plt.show()
 
 # 2. 타겟층 비중 (Ladies/Mens/Baby)
 plt.figure(figsize=(8, 8))
+#카테고리 비중을 파이차트로 한 번에 보자
 df_art_cleaned['index_group_name'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
 plt.title('df_art: 타겟 세그먼트 점유율')
 plt.ylabel('')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\1520647831.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\3933709999.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -687,7 +688,7 @@ plt.show()
     
 
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\417388781.py:10: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\417388781.py:10: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
@@ -712,7 +713,7 @@ plt.ylabel('고객 수')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\987151097.py:4: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\987151097.py:4: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
