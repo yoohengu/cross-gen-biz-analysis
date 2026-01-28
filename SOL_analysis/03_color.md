@@ -25,19 +25,40 @@ print(df.info())
     3  0.033881                 2    2019-08     온라인  0.0     0.0   
     4  0.003220                 1    2019-08    오프라인  0.0     0.0   
     
-       club_member_status  ...          index_name  index_group_name  \
-    0                 2.0  ...             Divided           Divided   
-    1                 2.0  ...          Ladieswear        Ladieswear   
-    2                 2.0  ...            Menswear          Menswear   
-    3                 2.0  ...  Ladies Accessories        Ladieswear   
-    4                 2.0  ...            Menswear          Menswear   
+       club_member_status  fashion_news_frequency   age age_segment  product_code  \
+    0                 2.0                     2.0  51.0         50대        698328   
+    1                 2.0                     0.0  28.0         20대        760597   
+    2                 2.0                     2.0  37.0         30대        488561   
+    3                 2.0                     0.0  19.0         10대        682771   
+    4                 2.0                     0.0  35.0         30대        742400   
     
-                 section_name  garment_group_name  \
-    0      Divided Collection        Jersey Fancy   
-    1           Womens Casual        Jersey Fancy   
-    2     Contemporary Casual              Shorts   
-    3  Womens Big accessories         Accessories   
-    4           Men Underwear    Socks and Tights   
+             prod_name product_type_name  product_group_name  \
+    0     ZEBRA CF TVP           Sweater  Garment Upper body   
+    1  BUBBLE WRAP TOP               Top  Garment Upper body   
+    2    Teddy jogger.            Shorts  Garment Lower body   
+    3     Yuki shopper               Bag         Accessories   
+    4    1pk Sportsock             Socks      Socks & Tights   
+    
+      graphical_appearance_name colour_group_name perceived_colour_value_name  \
+    0           Placement print         Dark Blue                        Dark   
+    1                    Stripe             White                       Light   
+    2                  Chambray         Dark Blue                        Dark   
+    3                     Solid             Black                        Dark   
+    4          All over pattern             White                       Light   
+    
+      perceived_colour_master_name    department_name          index_name  \
+    0                         Blue  Tops Fancy Jersey             Divided   
+    1                        White             Jersey          Ladieswear   
+    2                         Blue             Shorts            Menswear   
+    3                        Black               Bags  Ladies Accessories   
+    4                        White         Socks Wall            Menswear   
+    
+      index_group_name            section_name garment_group_name  \
+    0          Divided      Divided Collection       Jersey Fancy   
+    1       Ladieswear           Womens Casual       Jersey Fancy   
+    2         Menswear     Contemporary Casual             Shorts   
+    3       Ladieswear  Womens Big accessories        Accessories   
+    4         Menswear           Men Underwear   Socks and Tights   
     
                                              detail_desc product_season  \
     0  Top in lightweight sweatshirt fabric with drop...     All-Season   
@@ -52,8 +73,6 @@ print(df.info())
     2      Menswear        General_Fashion  Regular_Carryover   Dark_Tone  
     3    Ladieswear        General_Fashion  Regular_Carryover   Dark_Tone  
     4      Menswear  Low_Involvement_Basic  Regular_Carryover  Light_Tone  
-    
-    [5 rows x 32 columns]
     <class 'pandas.DataFrame'>
     RangeIndex: 1040101 entries, 0 to 1040100
     Data columns (total 32 columns):
@@ -152,7 +171,7 @@ pd.set_option('display.max_columns', None)
 # 2. 만약 행(Row)도 다 보고 싶다면 (주의: 데이터가 너무 많으면 렉이 걸릴 수 있음)
 # pd.set_option('display.max_rows', None)
 
-# 3. 이제 다시 확인해보세요!
+# 3. 이제 다시 확인해보기!
 print(df.columns.tolist()) # 리스트 형태로 깔끔하게 이름만 다 뽑아보기
 # 또는
 df.head() # 이제 가로로 스크롤하며 모든 컬럼 확인 가능
@@ -463,6 +482,10 @@ import seaborn as sns
 
 tone_counts = df['color_tone'].value_counts()
 
+#뽄드
+plt.rc('font', family='Malgun Gothic')
+plt.rcParams['axes.unicode_minus'] = False
+
 ###실제 색에 맞게 코드 추가 (그냥 ㅎ ㅐ보고 싶어서.. 일치감이 중요하니까!)
 # 각 조각의 이름을 보고 실제 색상 매핑
 color_dict = {'Dark_Tone': 'tab:blue', 'Light_Tone': 'tab:orange', 'Neutral_Tone': 'tab:green'}
@@ -474,7 +497,7 @@ plt.pie(tone_counts,
         autopct='%1.1f%%',
         colors=colors,          #지정한 색대로
         startangle=140)
-plt.title('Color Tone Popularity (Sales Volume Share)', fontsize=15)
+plt.title('제품군 색상 톤 비율', fontsize=15)
 plt.show()
 ```
 
@@ -498,9 +521,9 @@ final_table.plot(kind='bar',
                  color=['tab:blue', 'tab:orange', 'tab:green'], #걍 지정해주기
                  edgecolor='gray')
 
-plt.title('Monthly Color Tone Sales', fontsize=16)
-plt.ylabel('Sales Volume')
-plt.xlabel('Month')
+plt.title('월간 색상별 판매량', fontsize=16)
+plt.ylabel('판매량')
+plt.xlabel('월')
 plt.show()
 ```
 
@@ -514,6 +537,81 @@ plt.show()
 * 사실 봄, 여름에는 시원한 느낌의 색이 어울릴 거라고 생각했는데 예상보다 다크톤에 대한 비중이 높았다. 한국 트랜드와는 다를 수 있으니 이 부분은 탐색해봐야 할듯
 * SS 시즌에는 어울리지 않을 거라고 생각했으나 꾸준히 다크톤에 대한 선호도가 높은 만큼 2022 SS도 다크톤에 대한 전략을 세워보면 어떨까?
 * 
+
+
+```python
+##베이직 라인(올시즌)의 톤 분석
+import matplotlib.pyplot as plt
+all_season_df = df[df['product_season'] == 'All-Season']
+volume_table = all_season_df.groupby(['year_month', 'color_tone']).size().unstack(fill_value=0)
+
+volume_table.plot(kind='bar', 
+                  stacked=True, 
+                  figsize=(15, 7), 
+                  edgecolor='gray')
+
+plt.title('All-Season 라인의 색상 별 판매량', fontsize=16)
+plt.ylabel('판매 건수 (Count)')
+plt.xlabel('판매 월')
+plt.xticks(rotation=45)
+plt.legend(title='내 파생변수: color_tone', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.grid(axis='y', linestyle='--', alpha=0.3)
+plt.show()
+```
+
+
+    
+![png](03_color_files/03_color_12_0.png)
+    
+
+
+
+```python
+#월별 카테고리 
+
+category_data = df.groupby(['year_month', 'category_main']).size().unstack(fill_value=0)
+
+category_data.plot(kind='bar', 
+                   stacked=True, 
+                   figsize=(15, 8), 
+                   colormap='viridis',
+                   width=0.8)
+
+plt.title('월별 카테고리 수요', fontsize=16)
+plt.ylabel('판매량')
+plt.xlabel('월')
+plt.show()
+```
+
+
+    
+![png](03_color_files/03_color_13_0.png)
+    
+
+
+
+```python
+#월별 카테고리 
+
+category_data = df.groupby(['year_month', 'product_season']).size().unstack(fill_value=0)
+
+category_data.plot(kind='bar', 
+                   stacked=True, 
+                   figsize=(15, 8), 
+                   colormap='Set2',
+                   width=0.8)
+
+plt.title('월별 시즌상품 수요', fontsize=16)
+plt.ylabel('판매량')
+plt.xlabel('월')
+plt.show()
+```
+
+
+    
+![png](03_color_files/03_color_14_0.png)
+    
+
 
 
 ```python
