@@ -332,7 +332,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 sns.countplot(data=customer, x='club_member_status')
-plt.title("Distribution of Club Member Status")
+plt.title("회원 상태 비율")
 plt.show()
 ```
 
@@ -370,11 +370,13 @@ plt.show()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+plt.rc('font', family='Malgun Gothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 # 1. 상품 그룹(product_group_name)별 분포 확인
 plt.figure(figsize=(12, 6))
 sns.countplot(data=df_art, y='product_group_name', order=df_art['product_group_name'].value_counts().index)
-plt.title('df_art: Distribution by Product Group', fontsize=15)   #상품 그룹별 데이터 분포
+plt.title('제품 그룹 별 분포', fontsize=15)  
 plt.xlabel('Count') #상품 수
 plt.ylabel('Group Name')    #그룹명
 plt.show()
@@ -382,7 +384,7 @@ plt.show()
 # 2. 가설 검증용: index_group_name(타겟층) 분포 확인
 plt.figure(figsize=(10, 5))
 df_art['index_group_name'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
-plt.title('df_art: Target Segment Share (Ladies/Mens/Baby)')
+plt.title('카테고리 분포 확인')
 plt.ylabel('')
 plt.show()
 ```
@@ -508,7 +510,7 @@ sns.histplot(customer['age'], bins=40, kde=True, color='#2ecc71')
 plt.axvline(25, color='red', linestyle='--', label='MZ 타겟 (20대)') 
 plt.axvline(50, color='blue', linestyle='--', label='Active Senior (50대)')
 
-plt.title('Customer: 고객 연령층 분포 (우리 항해의 타겟은?)', fontsize=16)
+plt.title('Customer: 고객 연령층 분포 (우리 타겟은?)', fontsize=16)
 plt.xlabel('나이(Age)')
 plt.ylabel('고객 수')
 plt.legend()
@@ -640,13 +642,14 @@ plt.show()
 
 # 2. 타겟층 비중 (Ladies/Mens/Baby)
 plt.figure(figsize=(8, 8))
+#카테고리 비중을 파이차트로 한 번에 보자
 df_art_cleaned['index_group_name'].value_counts().plot.pie(autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
 plt.title('df_art: 타겟 세그먼트 점유율')
 plt.ylabel('')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\1520647831.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\3933709999.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -687,7 +690,7 @@ plt.show()
     
 
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\417388781.py:10: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\417388781.py:10: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
@@ -712,7 +715,7 @@ plt.ylabel('고객 수')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11944\987151097.py:4: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_7472\987151097.py:4: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
