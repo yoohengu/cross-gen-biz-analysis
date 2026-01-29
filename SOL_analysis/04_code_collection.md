@@ -66,7 +66,7 @@ plt.title('카테고리 분포 확인')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_12632\2120107130.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_8620\2120107130.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -311,6 +311,110 @@ plt.show()
 ![png](04_code_collection_files/04_code_collection_13_0.png)
     
 
+
+
+```python
+##### 검증
+print(df['colour_group_name'].unique())
+print("---------------")
+print(df['section_name'].unique())
+```
+
+    ['Dark Blue' 'White' 'Black' 'Beige' 'Red' 'Pink' 'Dark Yellow' 'Blue'
+     'Light Beige' 'Light Pink' 'Dark Beige' 'Dark Green' 'Light Blue'
+     'Yellowish Brown' 'Grey' 'Off White' 'Yellow' 'Green' 'Greenish Khaki'
+     'Light Grey' 'Light Orange' 'Orange' 'Dark Grey' 'Dark Red' 'Light Red'
+     'Dark Pink' 'Other Red' 'Dark Orange' 'Silver' 'Turquoise' 'Light Green'
+     'Light Purple' 'Dark Turquoise' 'Other Yellow' 'Other Pink' 'Other Green'
+     'Light Yellow' 'Light Turquoise' 'Gold' 'Other Turquoise' 'Bronze/Copper'
+     'Purple' 'Other' 'Other Purple' 'Dark Purple' 'Greyish Beige'
+     'Other Blue' 'Other Orange' 'Transparent' 'Unknown']
+    ---------------
+    ['Divided Collection' 'Womens Casual' 'Contemporary Casual'
+     'Womens Big accessories' 'Men Underwear' 'Divided Projects'
+     'Womens Swimwear, beachwear' 'Womens Everyday Collection'
+     'Womens Tailoring' 'Ladies H&M Sport' 'Divided Accessories'
+     'Womens Jackets' 'Womens Shoes' 'Womens Everyday Basics' 'Ladies Denim'
+     'Divided Basics' 'Womens Lingerie' 'Womens Small accessories'
+     'Womens Nightwear, Socks & Tigh' 'H&M+' 'Womens Trend' 'Young Girl'
+     'Collaborations' 'Girls Underwear & Basics' 'Mama' 'Kids Girl'
+     'Divided Selected' 'Baby Essentials & Complements'
+     'Men Suits & Tailoring' 'Contemporary Smart' 'Young Boy'
+     'Contemporary Street' 'Denim Men' 'Kids Outerwear'
+     'Boys Underwear & Basics' 'Divided Complements Other' 'Men H&M Sport'
+     'Special Collections' 'Baby Girl' 'Kids Boy' 'Kids Sports' 'Men Shoes'
+     'Kids Accessories, Swimwear & D' 'Kids & Baby Shoes' 'Womens Premium'
+     'Men Accessories' 'Mens Outerwear' 'Baby Boy' 'Kids Local Relevance'
+     'Divided Asia keys' 'Men Project' 'Men Edition' 'Men Other 2'
+     'EQ Divided' 'Men Other' 'Ladies Other']
+    
+
+
+```python
+print(df['product_season'].unique())
+```
+
+    ['All-Season' 'SS' 'FW']
+    
+
+
+```python
+print(df[df['product_season'] == 'FW']['section_name'].unique())
+print("\n------------")
+print(df[df['product_season'] == 'SS']['section_name'].unique())
+print("\n------------")
+print(df[df['product_season'] == 'All-Season']['section_name'].unique())
+```
+
+    ['Ladies H&M Sport' 'Womens Jackets' 'Divided Basics'
+     'Womens Nightwear, Socks & Tigh' 'Divided Collection' 'Collaborations'
+     'Divided Selected' 'Womens Casual' 'Womens Everyday Collection'
+     'Kids Outerwear' 'Boys Underwear & Basics' 'Men Underwear' 'H&M+'
+     'Womens Big accessories' 'Womens Tailoring'
+     'Baby Essentials & Complements' 'Womens Trend' 'Kids Sports'
+     'Special Collections' 'Mens Outerwear' 'Men Accessories'
+     'Womens Small accessories' 'Divided Accessories' 'Kids Local Relevance'
+     'Ladies Denim' 'Divided Complements Other' 'Divided Asia keys'
+     'Womens Premium' 'Contemporary Smart' 'Divided Projects'
+     'Contemporary Street' 'Baby Girl' 'Kids Girl' 'Girls Underwear & Basics'
+     'Men Project' 'Contemporary Casual' 'Men H&M Sport' 'Young Girl'
+     'Womens Everyday Basics' 'Womens Lingerie' 'Young Boy' 'Baby Boy'
+     'Men Suits & Tailoring' 'Kids Boy' 'Kids Accessories, Swimwear & D'
+     'Mama' 'Womens Shoes' 'Kids & Baby Shoes' 'Men Edition' 'Men Other 2'
+     'Denim Men' 'Men Shoes']
+    
+    ------------
+    ['Men Underwear' 'Divided Projects' 'Womens Swimwear, beachwear'
+     'Divided Collection' 'Womens Tailoring' 'Ladies H&M Sport'
+     'Womens Everyday Collection' 'Divided Basics' 'Ladies Denim'
+     'Womens Trend' 'H&M+' 'Womens Small accessories' 'Womens Big accessories'
+     'Baby Essentials & Complements' 'Womens Casual' 'Womens Everyday Basics'
+     'Contemporary Street' 'Divided Selected' 'Mama' 'Men H&M Sport'
+     'Denim Men' 'Young Girl' 'Kids Accessories, Swimwear & D' 'Kids Boy'
+     'Divided Complements Other' 'Kids Sports' 'Young Boy'
+     'Boys Underwear & Basics' 'Womens Premium' 'Divided Accessories'
+     'Kids Girl' 'Womens Lingerie' 'Girls Underwear & Basics' 'Womens Shoes'
+     'Baby Boy' 'Special Collections' 'Contemporary Smart' 'Baby Girl'
+     'Men Accessories' 'Contemporary Casual' 'Collaborations'
+     'Kids Local Relevance' 'EQ Divided' 'Divided Asia keys'
+     'Men Suits & Tailoring' 'Men Shoes' 'Men Project' 'Men Other 2'
+     'Kids & Baby Shoes' 'Men Edition']
+    
+    ------------
+    ['Divided Collection' 'Womens Casual' 'Contemporary Casual'
+     'Womens Big accessories' 'Womens Everyday Collection' 'Womens Tailoring'
+     'Divided Accessories' 'Womens Shoes' 'Womens Everyday Basics'
+     'Ladies Denim' 'Womens Lingerie' 'Womens Small accessories' 'H&M+'
+     'Men Underwear' 'Womens Trend' 'Young Girl' 'Girls Underwear & Basics'
+     'Mama' 'Kids Girl' 'Divided Basics' 'Men Suits & Tailoring'
+     'Divided Selected' 'Contemporary Smart' 'Young Boy' 'Divided Projects'
+     'Denim Men' 'Collaborations' 'Baby Essentials & Complements'
+     'Divided Complements Other' 'Boys Underwear & Basics'
+     'Contemporary Street' 'Special Collections' 'Baby Girl' 'Kids Boy'
+     'Men Shoes' 'Kids & Baby Shoes' 'Womens Premium' 'Men Accessories'
+     'Kids Local Relevance' 'Baby Boy' 'Men Project' 'Men Edition'
+     'Divided Asia keys' 'Men Other 2' 'Men Other' 'EQ Divided' 'Ladies Other']
+    
 
 
 ```python
