@@ -326,6 +326,7 @@ plt.title('채널별 연령대 누적 매출액 비교', fontsize=16)
 plt.xlabel('연령대', fontsize=12)
 plt.ylabel('총 매출액', fontsize=12)
 plt.legend(title='구매 채널', loc='upper right')
+plt.grid(axis='y', linestyle='--', alpha=0.5)
 
 plt.show()
 ```
