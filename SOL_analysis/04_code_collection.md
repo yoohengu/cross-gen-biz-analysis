@@ -279,11 +279,6 @@ plt.show()
     
 
 
-자 할거 내일
-1. 연령대 채널 분석도 가져와서 수정하기 (필요한가? 주제가 흐려질까봐 걱정)
-2. 4-2 주석넣기
-3. 뭐 .. 뭐하지? 기본 우리 연령대x채널x매출 분석~ 혹은 프로젝트 메인 분석 시각화를 좀 봐야겠다
-
 
 ```python
 df_sales = df.groupby(['age_segment', 'channel'])['price'].sum().reset_index()
@@ -308,7 +303,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_13_0.png)
+![png](04_code_collection_files/04_code_collection_12_0.png)
     
 
 
@@ -353,7 +348,7 @@ sns.lineplot(
     palette='magma'
 )
 
-plt.title(f'연령대별 채널 매출 및 주요 TOP 3 카테고리 추이', fontsize=16)
+plt.title('연령대별 채널 매출 및 주요 TOP 3 카테고리 추이', fontsize=16)
 plt.xlabel('연령대', fontsize=12)
 plt.ylabel('총 매출액', fontsize=12)
 plt.legend(title='매출 항목', bbox_to_anchor=(1.05, 1), loc='upper left')
@@ -364,7 +359,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_14_0.png)
+![png](04_code_collection_files/04_code_collection_13_0.png)
     
 
 
