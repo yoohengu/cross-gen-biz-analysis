@@ -66,7 +66,7 @@ plt.title('카테고리 분포 확인')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_8620\2120107130.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_14756\2120107130.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -320,33 +320,52 @@ print("---------------")
 print(df['section_name'].unique())
 ```
 
-    ['Dark Blue' 'White' 'Black' 'Beige' 'Red' 'Pink' 'Dark Yellow' 'Blue'
-     'Light Beige' 'Light Pink' 'Dark Beige' 'Dark Green' 'Light Blue'
-     'Yellowish Brown' 'Grey' 'Off White' 'Yellow' 'Green' 'Greenish Khaki'
-     'Light Grey' 'Light Orange' 'Orange' 'Dark Grey' 'Dark Red' 'Light Red'
-     'Dark Pink' 'Other Red' 'Dark Orange' 'Silver' 'Turquoise' 'Light Green'
-     'Light Purple' 'Dark Turquoise' 'Other Yellow' 'Other Pink' 'Other Green'
-     'Light Yellow' 'Light Turquoise' 'Gold' 'Other Turquoise' 'Bronze/Copper'
-     'Purple' 'Other' 'Other Purple' 'Dark Purple' 'Greyish Beige'
-     'Other Blue' 'Other Orange' 'Transparent' 'Unknown']
+    <StringArray>
+    [      'Dark Blue',           'White',           'Black',           'Beige',
+                 'Red',            'Pink',     'Dark Yellow',            'Blue',
+         'Light Beige',      'Light Pink',      'Dark Beige',      'Dark Green',
+          'Light Blue', 'Yellowish Brown',            'Grey',       'Off White',
+              'Yellow',           'Green',  'Greenish Khaki',      'Light Grey',
+        'Light Orange',          'Orange',       'Dark Grey',        'Dark Red',
+           'Light Red',       'Dark Pink',       'Other Red',     'Dark Orange',
+              'Silver',       'Turquoise',     'Light Green',    'Light Purple',
+      'Dark Turquoise',    'Other Yellow',      'Other Pink',     'Other Green',
+        'Light Yellow', 'Light Turquoise',            'Gold', 'Other Turquoise',
+       'Bronze/Copper',          'Purple',           'Other',    'Other Purple',
+         'Dark Purple',   'Greyish Beige',      'Other Blue',    'Other Orange',
+         'Transparent',         'Unknown']
+    Length: 50, dtype: str
     ---------------
-    ['Divided Collection' 'Womens Casual' 'Contemporary Casual'
-     'Womens Big accessories' 'Men Underwear' 'Divided Projects'
-     'Womens Swimwear, beachwear' 'Womens Everyday Collection'
-     'Womens Tailoring' 'Ladies H&M Sport' 'Divided Accessories'
-     'Womens Jackets' 'Womens Shoes' 'Womens Everyday Basics' 'Ladies Denim'
-     'Divided Basics' 'Womens Lingerie' 'Womens Small accessories'
-     'Womens Nightwear, Socks & Tigh' 'H&M+' 'Womens Trend' 'Young Girl'
-     'Collaborations' 'Girls Underwear & Basics' 'Mama' 'Kids Girl'
-     'Divided Selected' 'Baby Essentials & Complements'
-     'Men Suits & Tailoring' 'Contemporary Smart' 'Young Boy'
-     'Contemporary Street' 'Denim Men' 'Kids Outerwear'
-     'Boys Underwear & Basics' 'Divided Complements Other' 'Men H&M Sport'
-     'Special Collections' 'Baby Girl' 'Kids Boy' 'Kids Sports' 'Men Shoes'
-     'Kids Accessories, Swimwear & D' 'Kids & Baby Shoes' 'Womens Premium'
-     'Men Accessories' 'Mens Outerwear' 'Baby Boy' 'Kids Local Relevance'
-     'Divided Asia keys' 'Men Project' 'Men Edition' 'Men Other 2'
-     'EQ Divided' 'Men Other' 'Ladies Other']
+    <StringArray>
+    [            'Divided Collection',                  'Womens Casual',
+                'Contemporary Casual',         'Womens Big accessories',
+                      'Men Underwear',               'Divided Projects',
+         'Womens Swimwear, beachwear',     'Womens Everyday Collection',
+                   'Womens Tailoring',               'Ladies H&M Sport',
+                'Divided Accessories',                 'Womens Jackets',
+                       'Womens Shoes',         'Womens Everyday Basics',
+                       'Ladies Denim',                 'Divided Basics',
+                    'Womens Lingerie',       'Womens Small accessories',
+     'Womens Nightwear, Socks & Tigh',                           'H&M+',
+                       'Womens Trend',                     'Young Girl',
+                     'Collaborations',       'Girls Underwear & Basics',
+                               'Mama',                      'Kids Girl',
+                   'Divided Selected',  'Baby Essentials & Complements',
+              'Men Suits & Tailoring',             'Contemporary Smart',
+                          'Young Boy',            'Contemporary Street',
+                          'Denim Men',                 'Kids Outerwear',
+            'Boys Underwear & Basics',      'Divided Complements Other',
+                      'Men H&M Sport',            'Special Collections',
+                          'Baby Girl',                       'Kids Boy',
+                        'Kids Sports',                      'Men Shoes',
+     'Kids Accessories, Swimwear & D',              'Kids & Baby Shoes',
+                     'Womens Premium',                'Men Accessories',
+                     'Mens Outerwear',                       'Baby Boy',
+               'Kids Local Relevance',              'Divided Asia keys',
+                        'Men Project',                    'Men Edition',
+                        'Men Other 2',                     'EQ Divided',
+                          'Men Other',                   'Ladies Other']
+    Length: 56, dtype: str
     
 
 
@@ -354,7 +373,9 @@ print(df['section_name'].unique())
 print(df['product_season'].unique())
 ```
 
-    ['All-Season' 'SS' 'FW']
+    <StringArray>
+    ['All-Season', 'SS', 'FW']
+    Length: 3, dtype: str
     
 
 
@@ -366,54 +387,143 @@ print("\n------------")
 print(df[df['product_season'] == 'All-Season']['section_name'].unique())
 ```
 
-    ['Womens Jackets' 'Divided Basics' 'Womens Nightwear, Socks & Tigh'
-     'Divided Collection' 'Collaborations' 'Divided Selected' 'Womens Casual'
-     'Womens Everyday Collection' 'Kids Outerwear' 'Boys Underwear & Basics'
-     'Men Underwear' 'Womens Big accessories' 'Womens Tailoring'
-     'Baby Essentials & Complements' 'Womens Trend' 'Special Collections'
-     'H&M+' 'Mens Outerwear' 'Men Accessories' 'Womens Small accessories'
-     'Divided Accessories' 'Kids Local Relevance' 'Ladies Denim'
-     'Divided Complements Other' 'Divided Asia keys' 'Womens Premium'
-     'Contemporary Smart' 'Divided Projects' 'Contemporary Street' 'Baby Girl'
-     'Kids Girl' 'Girls Underwear & Basics' 'Men Project'
-     'Contemporary Casual' 'Young Girl' 'Womens Everyday Basics'
-     'Womens Lingerie' 'Young Boy' 'Baby Boy' 'Men Suits & Tailoring'
-     'Kids Boy' 'Mama' 'Womens Shoes' 'Kids & Baby Shoes' 'Men Edition'
-     'Men Other 2' 'Denim Men' 'Men Shoes']
+    <StringArray>
+    [                'Womens Jackets',                 'Divided Basics',
+                 'Divided Collection',                 'Collaborations',
+                   'Divided Selected',                  'Womens Casual',
+         'Womens Everyday Collection',                 'Kids Outerwear',
+                      'Men Underwear',        'Boys Underwear & Basics',
+             'Womens Big accessories',               'Womens Tailoring',
+      'Baby Essentials & Complements', 'Womens Nightwear, Socks & Tigh',
+                       'Womens Trend',            'Special Collections',
+                     'Mens Outerwear',                'Men Accessories',
+           'Womens Small accessories',            'Divided Accessories',
+               'Kids Local Relevance',                   'Ladies Denim',
+          'Divided Complements Other',              'Divided Asia keys',
+                     'Womens Premium',                           'H&M+',
+                 'Contemporary Smart',               'Divided Projects',
+                'Contemporary Street',                      'Baby Girl',
+                          'Kids Girl',                    'Men Project',
+                'Contemporary Casual',                     'Young Girl',
+             'Womens Everyday Basics',                'Womens Lingerie',
+                          'Young Boy',                       'Baby Boy',
+              'Men Suits & Tailoring',                       'Kids Boy',
+                               'Mama',                   'Womens Shoes',
+                  'Kids & Baby Shoes',                    'Men Edition',
+                        'Men Other 2',       'Girls Underwear & Basics',
+                          'Denim Men',                      'Men Shoes']
+    Length: 48, dtype: str
     
     ------------
-    ['Men Underwear' 'Divided Projects' 'Womens Swimwear, beachwear'
-     'Divided Collection' 'Ladies H&M Sport' 'Womens Tailoring'
-     'Womens Everyday Collection' 'Divided Basics' 'Ladies Denim'
-     'Womens Trend' 'H&M+' 'Womens Small accessories' 'Womens Big accessories'
-     'Baby Essentials & Complements' 'Womens Casual'
-     'Womens Nightwear, Socks & Tigh' 'Womens Everyday Basics'
-     'Contemporary Street' 'Divided Selected' 'Mama' 'Men H&M Sport'
-     'Denim Men' 'Young Girl' 'Kids Sports' 'Kids Accessories, Swimwear & D'
-     'Kids Boy' 'Divided Complements Other' 'Young Boy'
-     'Boys Underwear & Basics' 'Womens Premium' 'Divided Accessories'
-     'Kids Girl' 'Womens Lingerie' 'Girls Underwear & Basics' 'Womens Shoes'
-     'Baby Boy' 'Special Collections' 'Contemporary Smart' 'Baby Girl'
-     'Men Accessories' 'Contemporary Casual' 'Collaborations'
-     'Kids Local Relevance' 'EQ Divided' 'Divided Asia keys'
-     'Men Suits & Tailoring' 'Mens Outerwear' 'Men Shoes' 'Men Project'
-     'Womens Jackets' 'Men Other 2' 'Kids Outerwear' 'Kids & Baby Shoes'
-     'Men Edition']
+    <StringArray>
+    [                 'Men Underwear',               'Divided Projects',
+         'Womens Swimwear, beachwear',             'Divided Collection',
+                   'Ladies H&M Sport',               'Womens Tailoring',
+         'Womens Everyday Collection',                 'Divided Basics',
+                       'Ladies Denim',                   'Womens Trend',
+                               'H&M+',       'Womens Small accessories',
+             'Womens Big accessories',  'Baby Essentials & Complements',
+                      'Womens Casual', 'Womens Nightwear, Socks & Tigh',
+             'Womens Everyday Basics',            'Contemporary Street',
+                   'Divided Selected',                           'Mama',
+                      'Men H&M Sport',                      'Denim Men',
+                         'Young Girl',                    'Kids Sports',
+     'Kids Accessories, Swimwear & D',                       'Kids Boy',
+          'Divided Complements Other',                      'Young Boy',
+            'Boys Underwear & Basics',                 'Womens Premium',
+                'Divided Accessories',                      'Kids Girl',
+                    'Womens Lingerie',       'Girls Underwear & Basics',
+                       'Womens Shoes',                       'Baby Boy',
+                'Special Collections',             'Contemporary Smart',
+                          'Baby Girl',                'Men Accessories',
+                'Contemporary Casual',                 'Collaborations',
+               'Kids Local Relevance',                     'EQ Divided',
+                  'Divided Asia keys',          'Men Suits & Tailoring',
+                     'Mens Outerwear',                      'Men Shoes',
+                        'Men Project',                 'Womens Jackets',
+                        'Men Other 2',                 'Kids Outerwear',
+                  'Kids & Baby Shoes',                    'Men Edition']
+    Length: 54, dtype: str
     
     ------------
-    ['Divided Collection' 'Womens Casual' 'Contemporary Casual'
-     'Womens Big accessories' 'Womens Everyday Collection' 'Womens Tailoring'
-     'Divided Accessories' 'Womens Shoes' 'Womens Everyday Basics'
-     'Ladies Denim' 'Womens Lingerie' 'Womens Small accessories' 'H&M+'
-     'Men Underwear' 'Womens Trend' 'Young Girl' 'Girls Underwear & Basics'
-     'Mama' 'Kids Girl' 'Divided Basics' 'Men Suits & Tailoring'
-     'Divided Selected' 'Contemporary Smart' 'Young Boy' 'Divided Projects'
-     'Denim Men' 'Collaborations' 'Baby Essentials & Complements'
-     'Divided Complements Other' 'Boys Underwear & Basics'
-     'Contemporary Street' 'Special Collections' 'Baby Girl' 'Kids Boy'
-     'Men Shoes' 'Kids & Baby Shoes' 'Womens Premium' 'Men Accessories'
-     'Kids Local Relevance' 'Baby Boy' 'Men Project' 'Men Edition'
-     'Divided Asia keys' 'Men Other 2' 'Men Other' 'EQ Divided' 'Ladies Other']
+    <StringArray>
+    [            'Divided Collection',                  'Womens Casual',
+                'Contemporary Casual',         'Womens Big accessories',
+         'Womens Everyday Collection',               'Womens Tailoring',
+                'Divided Accessories',                   'Womens Shoes',
+             'Womens Everyday Basics',                   'Ladies Denim',
+                    'Womens Lingerie',       'Womens Small accessories',
+     'Womens Nightwear, Socks & Tigh',                           'H&M+',
+                      'Men Underwear',                   'Womens Trend',
+                         'Young Girl',       'Girls Underwear & Basics',
+                               'Mama',                      'Kids Girl',
+                     'Divided Basics',          'Men Suits & Tailoring',
+                   'Divided Selected',             'Contemporary Smart',
+                          'Young Boy',               'Divided Projects',
+                          'Denim Men',                 'Collaborations',
+            'Boys Underwear & Basics',  'Baby Essentials & Complements',
+          'Divided Complements Other',            'Contemporary Street',
+                'Special Collections',                      'Baby Girl',
+                           'Kids Boy',                      'Men Shoes',
+                  'Kids & Baby Shoes',                 'Womens Premium',
+                    'Men Accessories',           'Kids Local Relevance',
+                           'Baby Boy',                    'Men Project',
+                        'Men Edition',              'Divided Asia keys',
+                        'Men Other 2',                      'Men Other',
+                         'EQ Divided',                   'Ladies Other']
+    Length: 48, dtype: str
+    
+
+
+```python
+print(df[df['product_season'] == 'FW']['prod_name'].unique())
+print("\n------------")
+print(df[df['product_season'] == 'SS']['prod_name'].unique())
+print("\n------------")
+print(df[df['product_season'] == 'All-Season']['prod_name'].unique())
+```
+
+    <StringArray>
+    [        'Baloo Hood Padded',              'Becka hoodie',
+            'Aruba denim jacket',           'PE DANIELA COAT',
+              'Calgary Cardigan',           'Sean wool biker',
+      'Maltese trow on cardigan',            'Barry cardigan',
+     'Girona throw on wool coat',               'Furi tights',
+     ...
+          'BB BEANIE JERSEY OWN',          'BUCKET HAT BASIC',
+              'CE Anderson coat',           'FLORINA fur jkt',
+       'Christy Pile Jacket (1)',          'SB Parker Hybrid',
+           'DIV Hellas cardigan',  'PREMIUM Sasha wool scarf',
+                        'Kvaser',     'NILLA stripe cardigan']
+    Length: 1961, dtype: str
+    
+    ------------
+    <StringArray>
+    [              '1pk Sportsock', 'RR 47.1/2 /3Leo shirt dress',
+        'Timeless Padded Swimsuit',             'SANNA SLIP TANK',
+         'Chia Seamless HW Tights',       'Vermont Summer Slacks',
+                  'Tory price tee',                'Locket dress',
+          'Shake it in Balconette',      'LS Olivia Triangle Top',
+     ...
+                    'Smilla dress',                   'HW shorts',
+                    'Sunset Fancy',       'SW Mini Kyla swimsuit',
+                    'RASPY shorts',            'PE BECK SWIMSUIT',
+                  'WILMA ls dress',            'HAILEY SKIRT S.1',
+                 'Cleopatra skirt', 'SPEED Choker 2pk glitter P5']
+    Length: 6097, dtype: str
+    
+    ------------
+    <StringArray>
+    [       'ZEBRA CF TVP',     'BUBBLE WRAP TOP',       'Teddy jogger.',
+            'Yuki shopper',        'AGNES isw 45',      'Hazel playsuit',
+                  'Athena',   'Bonita WH tapered',              'Yellow',
+      'CHLOE cosmetic bag',
+     ...
+     'Speed Penut Earring',     'SALT 2-pack tee',  'Basic 5p Shaftless',
+      'Zen detailed shirt',             'Randall',           'Elvis top',
+      'Unicorn slipper SG',      'PLUS SKINNY SS',    'CNY Badger Fancy',
+              'Meow denim']
+    Length: 17109, dtype: str
     
 
 
