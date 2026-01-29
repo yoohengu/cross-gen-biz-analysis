@@ -366,39 +366,39 @@ print("\n------------")
 print(df[df['product_season'] == 'All-Season']['section_name'].unique())
 ```
 
-    ['Ladies H&M Sport' 'Womens Jackets' 'Divided Basics'
-     'Womens Nightwear, Socks & Tigh' 'Divided Collection' 'Collaborations'
-     'Divided Selected' 'Womens Casual' 'Womens Everyday Collection'
-     'Kids Outerwear' 'Boys Underwear & Basics' 'Men Underwear' 'H&M+'
-     'Womens Big accessories' 'Womens Tailoring'
-     'Baby Essentials & Complements' 'Womens Trend' 'Kids Sports'
-     'Special Collections' 'Mens Outerwear' 'Men Accessories'
-     'Womens Small accessories' 'Divided Accessories' 'Kids Local Relevance'
-     'Ladies Denim' 'Divided Complements Other' 'Divided Asia keys'
-     'Womens Premium' 'Contemporary Smart' 'Divided Projects'
-     'Contemporary Street' 'Baby Girl' 'Kids Girl' 'Girls Underwear & Basics'
-     'Men Project' 'Contemporary Casual' 'Men H&M Sport' 'Young Girl'
-     'Womens Everyday Basics' 'Womens Lingerie' 'Young Boy' 'Baby Boy'
-     'Men Suits & Tailoring' 'Kids Boy' 'Kids Accessories, Swimwear & D'
-     'Mama' 'Womens Shoes' 'Kids & Baby Shoes' 'Men Edition' 'Men Other 2'
-     'Denim Men' 'Men Shoes']
+    ['Womens Jackets' 'Divided Basics' 'Womens Nightwear, Socks & Tigh'
+     'Divided Collection' 'Collaborations' 'Divided Selected' 'Womens Casual'
+     'Womens Everyday Collection' 'Kids Outerwear' 'Boys Underwear & Basics'
+     'Men Underwear' 'Womens Big accessories' 'Womens Tailoring'
+     'Baby Essentials & Complements' 'Womens Trend' 'Special Collections'
+     'H&M+' 'Mens Outerwear' 'Men Accessories' 'Womens Small accessories'
+     'Divided Accessories' 'Kids Local Relevance' 'Ladies Denim'
+     'Divided Complements Other' 'Divided Asia keys' 'Womens Premium'
+     'Contemporary Smart' 'Divided Projects' 'Contemporary Street' 'Baby Girl'
+     'Kids Girl' 'Girls Underwear & Basics' 'Men Project'
+     'Contemporary Casual' 'Young Girl' 'Womens Everyday Basics'
+     'Womens Lingerie' 'Young Boy' 'Baby Boy' 'Men Suits & Tailoring'
+     'Kids Boy' 'Mama' 'Womens Shoes' 'Kids & Baby Shoes' 'Men Edition'
+     'Men Other 2' 'Denim Men' 'Men Shoes']
     
     ------------
     ['Men Underwear' 'Divided Projects' 'Womens Swimwear, beachwear'
-     'Divided Collection' 'Womens Tailoring' 'Ladies H&M Sport'
+     'Divided Collection' 'Ladies H&M Sport' 'Womens Tailoring'
      'Womens Everyday Collection' 'Divided Basics' 'Ladies Denim'
      'Womens Trend' 'H&M+' 'Womens Small accessories' 'Womens Big accessories'
-     'Baby Essentials & Complements' 'Womens Casual' 'Womens Everyday Basics'
+     'Baby Essentials & Complements' 'Womens Casual'
+     'Womens Nightwear, Socks & Tigh' 'Womens Everyday Basics'
      'Contemporary Street' 'Divided Selected' 'Mama' 'Men H&M Sport'
-     'Denim Men' 'Young Girl' 'Kids Accessories, Swimwear & D' 'Kids Boy'
-     'Divided Complements Other' 'Kids Sports' 'Young Boy'
+     'Denim Men' 'Young Girl' 'Kids Sports' 'Kids Accessories, Swimwear & D'
+     'Kids Boy' 'Divided Complements Other' 'Young Boy'
      'Boys Underwear & Basics' 'Womens Premium' 'Divided Accessories'
      'Kids Girl' 'Womens Lingerie' 'Girls Underwear & Basics' 'Womens Shoes'
      'Baby Boy' 'Special Collections' 'Contemporary Smart' 'Baby Girl'
      'Men Accessories' 'Contemporary Casual' 'Collaborations'
      'Kids Local Relevance' 'EQ Divided' 'Divided Asia keys'
-     'Men Suits & Tailoring' 'Men Shoes' 'Men Project' 'Men Other 2'
-     'Kids & Baby Shoes' 'Men Edition']
+     'Men Suits & Tailoring' 'Mens Outerwear' 'Men Shoes' 'Men Project'
+     'Womens Jackets' 'Men Other 2' 'Kids Outerwear' 'Kids & Baby Shoes'
+     'Men Edition']
     
     ------------
     ['Divided Collection' 'Womens Casual' 'Contemporary Casual'
