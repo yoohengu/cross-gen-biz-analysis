@@ -66,7 +66,7 @@ plt.title('카테고리 분포 확인')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_13108\2120107130.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_8620\2120107130.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -75,13 +75,13 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_2_1.png)
+![png](04_code%20collection_files/04_code%20collection_2_1.png)
     
 
 
 
     
-![png](04_code_collection_files/04_code_collection_2_2.png)
+![png](04_code%20collection_files/04_code%20collection_2_2.png)
     
 
 
@@ -125,7 +125,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_5_0.png)
+![png](04_code%20collection_files/04_code%20collection_5_0.png)
     
 
 
@@ -164,7 +164,7 @@ print(category_counts)
 
 
     
-![png](04_code_collection_files/04_code_collection_7_0.png)
+![png](04_code%20collection_files/04_code%20collection_7_0.png)
     
 
 
@@ -195,7 +195,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_8_0.png)
+![png](04_code%20collection_files/04_code%20collection_8_0.png)
     
 
 
@@ -222,7 +222,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_9_0.png)
+![png](04_code%20collection_files/04_code%20collection_9_0.png)
     
 
 
@@ -250,7 +250,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_10_0.png)
+![png](04_code%20collection_files/04_code%20collection_10_0.png)
     
 
 
@@ -275,7 +275,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_11_0.png)
+![png](04_code%20collection_files/04_code%20collection_11_0.png)
     
 
 
@@ -303,7 +303,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_12_0.png)
+![png](04_code%20collection_files/04_code%20collection_12_0.png)
     
 
 
@@ -332,7 +332,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_13_0.png)
+![png](04_code%20collection_files/04_code%20collection_13_0.png)
     
 
 
@@ -366,7 +366,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_14_0.png)
+![png](04_code%20collection_files/04_code%20collection_14_0.png)
     
 
 
@@ -422,7 +422,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_15_0.png)
+![png](04_code%20collection_files/04_code%20collection_15_0.png)
     
 
 
@@ -673,5 +673,5 @@ print(df[df['product_season'] == 'All-Season']['prod_name'].unique())
 
 
 ```python
-!python -m jupyter nbconvert --to markdown "04_code_collection.ipynb"
+!python -m jupyter nbconvert --to markdown "04_code collection.ipynb"
 ```

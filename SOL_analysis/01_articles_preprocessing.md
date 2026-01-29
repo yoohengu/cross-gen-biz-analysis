@@ -68,38 +68,38 @@ print(df_art.head())
 df_art.info()
 ```
 
-    <class 'pandas.DataFrame'>
+    <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 105542 entries, 0 to 105541
     Data columns (total 25 columns):
-     #   Column                        Non-Null Count   Dtype
-    ---  ------                        --------------   -----
-     0   article_id                    105542 non-null  int64
-     1   product_code                  105542 non-null  int64
-     2   prod_name                     105542 non-null  str  
-     3   product_type_no               105542 non-null  int64
-     4   product_type_name             105542 non-null  str  
-     5   product_group_name            105542 non-null  str  
-     6   graphical_appearance_no       105542 non-null  int64
-     7   graphical_appearance_name     105542 non-null  str  
-     8   colour_group_code             105542 non-null  int64
-     9   colour_group_name             105542 non-null  str  
-     10  perceived_colour_value_id     105542 non-null  int64
-     11  perceived_colour_value_name   105542 non-null  str  
-     12  perceived_colour_master_id    105542 non-null  int64
-     13  perceived_colour_master_name  105542 non-null  str  
-     14  department_no                 105542 non-null  int64
-     15  department_name               105542 non-null  str  
-     16  index_code                    105542 non-null  str  
-     17  index_name                    105542 non-null  str  
-     18  index_group_no                105542 non-null  int64
-     19  index_group_name              105542 non-null  str  
-     20  section_no                    105542 non-null  int64
-     21  section_name                  105542 non-null  str  
-     22  garment_group_no              105542 non-null  int64
-     23  garment_group_name            105542 non-null  str  
-     24  detail_desc                   105126 non-null  str  
-    dtypes: int64(11), str(14)
-    memory usage: 20.1 MB
+     #   Column                        Non-Null Count   Dtype 
+    ---  ------                        --------------   ----- 
+     0   article_id                    105542 non-null  int64 
+     1   product_code                  105542 non-null  int64 
+     2   prod_name                     105542 non-null  object
+     3   product_type_no               105542 non-null  int64 
+     4   product_type_name             105542 non-null  object
+     5   product_group_name            105542 non-null  object
+     6   graphical_appearance_no       105542 non-null  int64 
+     7   graphical_appearance_name     105542 non-null  object
+     8   colour_group_code             105542 non-null  int64 
+     9   colour_group_name             105542 non-null  object
+     10  perceived_colour_value_id     105542 non-null  int64 
+     11  perceived_colour_value_name   105542 non-null  object
+     12  perceived_colour_master_id    105542 non-null  int64 
+     13  perceived_colour_master_name  105542 non-null  object
+     14  department_no                 105542 non-null  int64 
+     15  department_name               105542 non-null  object
+     16  index_code                    105542 non-null  object
+     17  index_name                    105542 non-null  object
+     18  index_group_no                105542 non-null  int64 
+     19  index_group_name              105542 non-null  object
+     20  section_no                    105542 non-null  int64 
+     21  section_name                  105542 non-null  object
+     22  garment_group_no              105542 non-null  int64 
+     23  garment_group_name            105542 non-null  object
+     24  detail_desc                   105126 non-null  object
+    dtypes: int64(11), object(14)
+    memory usage: 20.1+ MB
     
 
 
@@ -278,18 +278,18 @@ print("그 달의 매출:", best_value)
 
 ```
 
-    <class 'pandas.DataFrame'>
+    <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 1048575 entries, 0 to 1048574
     Data columns (total 5 columns):
      #   Column            Non-Null Count    Dtype         
     ---  ------            --------------    -----         
-     0   t_dat             1048575 non-null  datetime64[us]
-     1   customer_id       1048575 non-null  str           
+     0   t_dat             1048575 non-null  datetime64[ns]
+     1   customer_id       1048575 non-null  object        
      2   article_id        1048575 non-null  int64         
      3   price             1048575 non-null  float64       
      4   sales_channel_id  1048575 non-null  int64         
-    dtypes: datetime64[us](1), float64(1), int64(2), str(1)
-    memory usage: 40.0 MB
+    dtypes: datetime64[ns](1), float64(1), int64(2), object(1)
+    memory usage: 40.0+ MB
     온라인: 729,192
     오프라인: 319,383
     전체 거래 건수: 1,048,575
@@ -327,6 +327,8 @@ print("그 달의 매출:", best_value)
 
 ```python
 ### 추가 EDA 시각화
+plt.rc('font', family='Malgun Gothic')
+plt.rcParams['axes.unicode_minus'] = False
 # club_member_status 시각화로 확인하려면 아래처럼
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -376,7 +378,7 @@ plt.rcParams['axes.unicode_minus'] = False
 # 1. 상품 그룹(product_group_name)별 분포 확인
 plt.figure(figsize=(12, 6))
 sns.countplot(data=df_art, y='product_group_name', order=df_art['product_group_name'].value_counts().index)
-plt.title('제품 그룹 별 분포', fontsize=15)  
+plt.title('상품 그룹 별 분포', fontsize=15)  
 plt.xlabel('Count') #상품 수
 plt.ylabel('Group Name')    #그룹명
 plt.show()
@@ -435,7 +437,7 @@ plt.show()
 4. divided
     * 이게 뭐..뭐지? 기타 품목인가 싶었는데 H&M의 MZ 타켓팅 라인(크롭, 스트릿 패션 디자인)을 모아둔 것
     * 2026년 기준 현재에도 스웨덴 및 글로벌 시장에서 dicided 라인 확실히 있으나 한국 웹사이트 기준에서는 보이지는 않음. 무신사 used(중고) 디바이디드에이치앤엠 이라는 이름으로 판매되고 있으나 공식 웹사이트에서는 카테고리 따로 X
-    * https://divided.brandswebsites.com/?utm_source=chatgpt.com
+    * https://divided.brandswebsites.com/
 
 
 ```python
@@ -583,8 +585,8 @@ print(f"전처리 전 컬럼 개수: {len(df_art.columns)}개")
 print(f"전처리 후 컬럼 개수: {len(df_art_cleaned.columns)}개 (중복 데이터 {len(cols_to_drop)}개 제거 완료!)")
 ```
 
-    변경 전 ID 타입: str
-    변경 후 ID 타입: str (0이 포함된 10자리 확인: 0108775015)
+    변경 전 ID 타입: object
+    변경 후 ID 타입: object (0이 포함된 10자리 확인: 0108775015)
     결측치 처리 전 비어있는 개수: 0개
     결측치 처리 후 비어있는 개수: 0개
     전처리 전 컬럼 개수: 25개
@@ -606,21 +608,21 @@ df_art_cleaned.dtypes
 
 
 
-    article_id                        str
-    product_code                    int64
-    prod_name                         str
-    product_type_name                 str
-    product_group_name                str
-    graphical_appearance_name         str
-    colour_group_name                 str
-    perceived_colour_value_name       str
-    perceived_colour_master_name      str
-    department_name                   str
-    index_name                        str
-    index_group_name                  str
-    section_name                      str
-    garment_group_name                str
-    detail_desc                       str
+    article_id                      object
+    product_code                     int64
+    prod_name                       object
+    product_type_name               object
+    product_group_name              object
+    graphical_appearance_name       object
+    colour_group_name               object
+    perceived_colour_value_name     object
+    perceived_colour_master_name    object
+    department_name                 object
+    index_name                      object
+    index_group_name                object
+    section_name                    object
+    garment_group_name              object
+    detail_desc                     object
     dtype: object
 
 
@@ -649,7 +651,7 @@ plt.ylabel('')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_7472\3933709999.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_1768\3933709999.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -690,7 +692,7 @@ plt.show()
     
 
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_7472\417388781.py:10: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_1768\417388781.py:10: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
@@ -715,7 +717,7 @@ plt.ylabel('고객 수')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_7472\987151097.py:4: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_1768\987151097.py:4: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
@@ -733,7 +735,7 @@ plt.show()
 ##매핑. 파생변수 생성하고 끝나기
 
 
-## 1. 색상 그룹과 섹션 이름에 어떤 값들이 있는지 먼저 확인하기
+## 1. 색 그룹과 섹상션 이름에 어떤 값들이 있는지 먼저 확인하기
 print("--- Colour Group Names ---")
 print(df_art['colour_group_name'].unique())
 
@@ -745,53 +747,34 @@ print(df_art['section_name'].unique())
 ```
 
     --- Colour Group Names ---
-    <StringArray>
-    [          'Black',           'White',       'Off White',     'Light Beige',
-               'Beige',            'Grey',      'Light Blue',      'Light Grey',
-           'Dark Blue',       'Dark Grey',            'Pink',        'Dark Red',
-       'Greyish Beige',    'Light Orange',          'Silver',            'Gold',
-          'Light Pink',       'Dark Pink', 'Yellowish Brown',            'Blue',
-     'Light Turquoise',          'Yellow',  'Greenish Khaki',     'Dark Yellow',
-          'Other Pink',     'Dark Purple',             'Red',     'Transparent',
-          'Dark Green',       'Other Red',       'Turquoise',     'Dark Orange',
-               'Other',          'Orange',      'Dark Beige',    'Other Yellow',
-         'Light Green',    'Other Orange',          'Purple',       'Light Red',
-        'Light Yellow',           'Green',    'Light Purple',  'Dark Turquoise',
-        'Other Purple',   'Bronze/Copper', 'Other Turquoise',     'Other Green',
-          'Other Blue',         'Unknown']
-    Length: 50, dtype: str
+    ['Black' 'White' 'Off White' 'Light Beige' 'Beige' 'Grey' 'Light Blue'
+     'Light Grey' 'Dark Blue' 'Dark Grey' 'Pink' 'Dark Red' 'Greyish Beige'
+     'Light Orange' 'Silver' 'Gold' 'Light Pink' 'Dark Pink' 'Yellowish Brown'
+     'Blue' 'Light Turquoise' 'Yellow' 'Greenish Khaki' 'Dark Yellow'
+     'Other Pink' 'Dark Purple' 'Red' 'Transparent' 'Dark Green' 'Other Red'
+     'Turquoise' 'Dark Orange' 'Other' 'Orange' 'Dark Beige' 'Other Yellow'
+     'Light Green' 'Other Orange' 'Purple' 'Light Red' 'Light Yellow' 'Green'
+     'Light Purple' 'Dark Turquoise' 'Other Purple' 'Bronze/Copper'
+     'Other Turquoise' 'Other Green' 'Other Blue' 'Unknown']
     
     --- Section Names ---
-    <StringArray>
-    [        'Womens Everyday Basics',                'Womens Lingerie',
-     'Womens Nightwear, Socks & Tigh',  'Baby Essentials & Complements',
-                      'Men Underwear',                           'Mama',
-           'Womens Small accessories',                  'Men H&M Sport',
-                           'Kids Boy',                 'Divided Basics',
-           'Girls Underwear & Basics',                 'Mens Outerwear',
-             'Womens Big accessories',            'Divided Accessories',
-         'Womens Swimwear, beachwear',               'Divided Selected',
-            'Boys Underwear & Basics',            'Contemporary Street',
-                'Contemporary Casual',                'Men Accessories',
-              'Men Suits & Tailoring',     'Womens Everyday Collection',
-                          'Men Shoes',                      'Young Boy',
-                               'H&M+',             'Divided Collection',
-                       'Ladies Denim',             'Contemporary Smart',
-                       'Womens Trend',                 'Kids Outerwear',
-                         'Young Girl',                   'Womens Shoes',
-                   'Womens Tailoring',               'Divided Projects',
-                          'Denim Men',                      'Men Other',
-                     'Womens Jackets',                    'Men Other 2',
-                           'Baby Boy',                  'Womens Casual',
-     'Kids Accessories, Swimwear & D',               'Ladies H&M Sport',
-                  'Kids & Baby Shoes',                      'Baby Girl',
-                          'Kids Girl',      'Divided Complements Other',
-                     'Womens Premium',            'Special Collections',
-                        'Kids Sports',                    'Men Project',
-                        'Men Edition',                 'Collaborations',
-                  'Divided Asia keys',                     'EQ Divided',
-               'Kids Local Relevance',                   'Ladies Other']
-    Length: 56, dtype: str
+    ['Womens Everyday Basics' 'Womens Lingerie'
+     'Womens Nightwear, Socks & Tigh' 'Baby Essentials & Complements'
+     'Men Underwear' 'Mama' 'Womens Small accessories' 'Men H&M Sport'
+     'Kids Boy' 'Divided Basics' 'Girls Underwear & Basics' 'Mens Outerwear'
+     'Womens Big accessories' 'Divided Accessories'
+     'Womens Swimwear, beachwear' 'Divided Selected' 'Boys Underwear & Basics'
+     'Contemporary Street' 'Contemporary Casual' 'Men Accessories'
+     'Men Suits & Tailoring' 'Womens Everyday Collection' 'Men Shoes'
+     'Young Boy' 'H&M+' 'Divided Collection' 'Ladies Denim'
+     'Contemporary Smart' 'Womens Trend' 'Kids Outerwear' 'Young Girl'
+     'Womens Shoes' 'Womens Tailoring' 'Divided Projects' 'Denim Men'
+     'Men Other' 'Womens Jackets' 'Men Other 2' 'Baby Boy' 'Womens Casual'
+     'Kids Accessories, Swimwear & D' 'Ladies H&M Sport' 'Kids & Baby Shoes'
+     'Baby Girl' 'Kids Girl' 'Divided Complements Other' 'Womens Premium'
+     'Special Collections' 'Kids Sports' 'Men Project' 'Men Edition'
+     'Collaborations' 'Divided Asia keys' 'EQ Divided' 'Kids Local Relevance'
+     'Ladies Other']
     
 
 
