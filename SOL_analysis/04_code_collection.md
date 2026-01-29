@@ -281,6 +281,35 @@ plt.show()
 
 
 ```python
+#채널별 연령대 누적 구매 건수
+plt.figure(figsize=(14, 7))
+
+sns.countplot(
+    data=df, 
+    x='age_segment', 
+    hue='channel', 
+    order=['10대', '20대', '30대', '40대', '50대', '60대 이상'],
+    palette='RdBu'
+)
+
+plt.title('채널별 연령대 누적 구매 건수', fontsize=16, pad=20)
+plt.xlabel('연령대', fontsize=12)
+plt.ylabel('누적 구매 건수 (건)', fontsize=12)  #df_merged 행의 개수(=거래 개수)
+plt.legend(title='구매 채널')
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+plt.show()
+
+```
+
+
+    
+![png](04_code_collection_files/04_code_collection_12_0.png)
+    
+
+
+
+```python
+## 채널별 연령대 누적 매출액 (실질적인 매출 기여도)
 df_sales = df.groupby(['age_segment', 'channel'])['price'].sum().reset_index()
 
 plt.figure(figsize=(13, 7))
@@ -289,11 +318,11 @@ sns.barplot(
     x='age_segment', 
     y='price', 
     hue='channel',
-    palette='RdBu',
+    palette='RdBu_r',
     order=['10대', '20대', '30대', '40대', '50대', '60대 이상']
 )
 
-plt.title('연령대 및 채널별 누적 매출액 비교', fontsize=16)
+plt.title('채널별 연령대 누적 매출액 비교', fontsize=16)
 plt.xlabel('연령대', fontsize=12)
 plt.ylabel('총 매출액', fontsize=12)
 plt.legend(title='구매 채널', loc='upper right')
@@ -303,7 +332,41 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_12_0.png)
+![png](04_code_collection_files/04_code_collection_13_0.png)
+    
+
+
+
+```python
+## 20대 VS 50대
+df_target = df[df['age_segment'].isin(['20대', '50대'])]
+
+# 20대와 50대를 옆으로 나란히 배치하여 비교
+age_vs = sns.catplot(
+    data=df_target, 
+    x='product_group_name', 
+    hue='channel', 
+    col='age_segment', 
+    col_order=['20대', '50대'], #20대가 먼저 오도록 수정
+    kind='count',
+    height=5, aspect=1.2,   #그래프 크기~ 데이터 두개 붙인거라(다중그래프) 모양 어케나올지 모르니까 figsize보다 이거 추천. (한 칸의 세로 높이 대 그거 대 가로비율)
+    palette='RdBu',
+    order=df_target['product_group_name'].value_counts().head(7).index #상위 7개 품목만
+)
+
+# 3. 가독성을 위한 설정
+age_vs.set_xticklabels(rotation=45)
+age_vs.set_axis_labels("제품 종류", "구매 건수")
+age_vs.set_titles("{col_name} 인기 상품")
+plt.subplots_adjust(top=0.85)   #치솟지마시오
+age_vs.fig.suptitle('20대 vs 50대: 채널별 품목 구매 패턴 비교', fontsize=16)
+
+plt.show()
+```
+
+
+    
+![png](04_code_collection_files/04_code_collection_14_0.png)
     
 
 
@@ -330,7 +393,7 @@ sns.barplot(
     x='age_segment', 
     y='price', 
     hue='channel',
-    palette='RdBu',
+    palette='RdBu_r',
     order=['10대', '20대', '30대', '40대', '50대', '60대 이상'],
     alpha=0.8
 )
@@ -359,7 +422,7 @@ plt.show()
 
 
     
-![png](04_code_collection_files/04_code_collection_13_0.png)
+![png](04_code_collection_files/04_code_collection_15_0.png)
     
 
 
