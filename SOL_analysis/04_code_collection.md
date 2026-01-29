@@ -356,7 +356,7 @@ age_vs = sns.catplot(
 
 # 3. 가독성을 위한 설정
 age_vs.set_xticklabels(rotation=45)
-age_vs.set_axis_labels("제품 종류", "구매 건수")
+age_vs.set_axis_labels("품목", "구매 건수")
 age_vs.set_titles("{col_name} 인기 상품")
 plt.subplots_adjust(top=0.85)   #치솟지마시오
 age_vs.fig.suptitle('20대 vs 50대: 채널별 품목 구매 패턴 비교', fontsize=16)
