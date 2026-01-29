@@ -66,7 +66,7 @@ plt.title('카테고리 분포 확인')
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_11016\2120107130.py:8: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_12632\2120107130.py:8: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
     
@@ -203,11 +203,14 @@ plt.show()
 ```python
 #월간 색상별 판매량
 tone_trend = df.groupby(['year_month', 'color_tone']).size().unstack(fill_value=0)  #가로로 펼치고 없으면 0으로 채워~
+### 색을 위 파이차트랑 통일하려면
+my_tones = ['#2E75B6', '#DDEBF7', '#82B1D1']
 
 tone_trend.plot(
     kind='bar', #area로 두는 게 낫나? 어.... barh? 일단 line은 안되고 그냥 bar로 하고 팀원들과 상의
     # stacked=True,     #이것도 상의 (area, bar로 결정되면) line이면 marker='o'도 붙이쉐이
-    color=sns.color_palette('vlag'),
+    # color=sns.color_palette('vlag'),
+    color = my_tones,
     figsize=(10, 5)
 )
 
@@ -275,6 +278,11 @@ plt.show()
 ![png](04_code_collection_files/04_code_collection_11_0.png)
     
 
+
+자 할거 내일
+1. 연령대 채널 분석도 가져와서 수정하기 (필요한가? 주제가 흐려질까봐 걱정)
+2. 4-2 주석넣기
+3. 뭐 .. 뭐하지? 기본 우리 연령대x채널x매출 분석~ 혹은 프로젝트 메인 분석 시각화를 좀 봐야겠다
 
 
 ```python
