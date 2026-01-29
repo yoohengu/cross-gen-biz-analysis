@@ -314,7 +314,87 @@ plt.show()
 
 
 ```python
-##### 검증
+# 0. 위에서쓴거
+df_sales = df.groupby(['age_segment', 'channel'])['price'].sum().reset_index()
+
+# 1. 카테고리 분류해서 따로 뽑기
+top_3_categories = df.groupby('category_main')['price'].sum().nlargest(3).index.tolist()    #젤큰거3개뽑기
+df_cat_top3 = df[df['category_main'].isin(top_3_categories)]
+#OR
+#my_target_categories = ['Ladieswear', 'Divided', 'Menswear']
+#df_cat_target = df[df['category_main'].isin(my_target_categories)] 해도 됨 
+
+# 2. 합쳐서 나눠담기
+df_cat_plot = df_cat_top3.groupby(['age_segment', 'category_main'])['price'].sum().reset_index()
+
+plt.figure(figsize=(14, 8))
+
+# 연령대별/채널별 매출
+sns.barplot(
+    data=df_sales, 
+    x='age_segment', 
+    y='price', 
+    hue='channel',
+    palette='RdBu',
+    order=['10대', '20대', '30대', '40대', '50대', '60대 이상'],
+    alpha=0.8
+)
+
+# 라인차트(카테고리)
+sns.lineplot(
+    data=df_cat_plot,
+    x='age_segment',
+    y='price',
+    hue='category_main',
+    hue_order=top_3_categories,
+    marker='o',
+    markersize=10,
+    linewidth=4,
+    palette='magma'
+)
+
+plt.title(f'연령대별 채널 매출 및 주요 TOP 3 카테고리 추이', fontsize=16)
+plt.xlabel('연령대', fontsize=12)
+plt.ylabel('총 매출액', fontsize=12)
+plt.legend(title='매출 항목', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+plt.show()
+
+```
+
+
+    
+![png](04_code_collection_files/04_code_collection_14_0.png)
+    
+
+
+### color_tone 검증
+* Dark_Tone :
+'black', 'dark blue', 'dark grey', 'dark red', 'dark pink', 'dark purple', 'dark green', 'dark orange', 'dark beige', 'dark turquoise', 'dark yellow', 'grey', 'bronze/copper'
+
+* Light_Tone :
+'white', 'off white', 'light beige', 'light blue', 'light grey', 'light orange', 'light pink', 'light green', 'light red', 'light yellow', 'light purple', 'transparent', 'light turquoise'
+
+* Neutral_Tone :
+'blue', 'red', 'purple', 'green', 'beige', 'pink', 'silver', 'gold', 'yellow', 'orange', 'turquoise', 'greyish beige', 'yellowish brown', 'greenish khaki', 'other' 시리즈 전체, 'unknown'
+
+* 특이사항 : Other, Unknown는 기타 항목이나 Neutral_Tone에 포함됨
+
+[애매한 녀석들]
+
+1. Light Grey / Light Beige → Light_Tone
+2. Silver / Gold → Neutral_Tone
+3. Bronze / Copper / Grey → Dark_Tone
+4. Transparent → Light_Tone
+5. Dark Yellow / Dark Turquoise / Dark Beige → Dark_Tone
+6. Other ~~ / Unknown → Neutral_Tone
+
+
+blue, red 이런 원색도 채도가 높아서 dark로 분류하려다가 그냥 dark 붙은 친구들만 넣고 수정했습니다!! 그래도 압도적으로 많네요.... 수정해서 조금 더 줄어들 줄 알았는데 카테고리 제품 내 다크톤 비중이 크다는 근거로는 충분할 것 같습니다!
+
+
+```python
+##### 검증을 위한 확인
 print(df['colour_group_name'].unique())
 print("---------------")
 print(df['section_name'].unique())
@@ -367,6 +447,13 @@ print(df['section_name'].unique())
                           'Men Other',                   'Ladies Other']
     Length: 56, dtype: str
     
+
+### product_season 검증
+sports 라인의 socks, jacket 그리고 잘못 기입된 키워드 nightwear가 전부 FW로 분류되는 사고가 있었습니다! 로직 순서를 SS- > FW -> All_season으로 바꿔서 키워드 우선도를 바꿨어요
+if~elif 라인 중 FW 키워드가 너무 포괄적으로 잡혀있음을 확인했습니다! SS 우선도(분류하기 쉬운 수영복)으로 바꾸고 FW 범위를 좁혀서(니트, 울, 이런 것만 잡히게) 수정했습니다!
+최종 완성 분류는 이렇습니다!
+
+
 
 
 ```python
