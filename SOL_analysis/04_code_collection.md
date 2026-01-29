@@ -286,5 +286,33 @@ plt.show()
 
 
 ```python
+df_sales = df.groupby(['age_segment', 'channel'])['price'].sum().reset_index()
+
+plt.figure(figsize=(13, 7))
+sns.barplot(
+    data=df_sales, 
+    x='age_segment', 
+    y='price', 
+    hue='channel',
+    palette='RdBu',
+    order=['10대', '20대', '30대', '40대', '50대', '60대 이상']
+)
+
+plt.title('연령대 및 채널별 누적 매출액 비교', fontsize=16)
+plt.xlabel('연령대', fontsize=12)
+plt.ylabel('총 매출액', fontsize=12)
+plt.legend(title='구매 채널', loc='upper right')
+
+plt.show()
+```
+
+
+    
+![png](04_code_collection_files/04_code_collection_13_0.png)
+    
+
+
+
+```python
 !python -m jupyter nbconvert --to markdown "04_code_collection.ipynb"
 ```
