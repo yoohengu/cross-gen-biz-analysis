@@ -260,6 +260,19 @@ print(articles.isnull().sum())
 
 
 ```python
+print(transactions.isnull().sum())
+```
+
+    t_dat               0
+    customer_id         0
+    article_id          0
+    price               0
+    sales_channel_id    0
+    dtype: int64
+    
+
+
+```python
 #age를 그룹화하는 게 보기 좋음 => mapping 
 #맞겠지? 연령대니까 이게 맞을거야 10대 20대
 #아 이상치 120이나 0살 이상치 확인
@@ -411,7 +424,7 @@ plt.show()
 
 
     
-![png](00_data_check_files/00_data_check_10_0.png)
+![png](00_data_check_files/00_data_check_11_0.png)
     
 
 

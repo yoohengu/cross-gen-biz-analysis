@@ -422,7 +422,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-    C:\Users\user\AppData\Local\Temp\ipykernel_12152\822583366.py:11: FutureWarning: 
+    C:\Users\user\AppData\Local\Temp\ipykernel_4428\822583366.py:11: FutureWarning: 
     
     Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
     
@@ -2228,6 +2228,7 @@ plt.show()
 ```python
 # 제품군 색상 톤 비율
 tone_counts = df_final['color_tone'].value_counts()
+my_tones = ['#2E75B6', '#DDEBF7', '#82B1D1']
 
 plt.figure(figsize=(6, 6))
 plt.pie(
@@ -2235,7 +2236,8 @@ plt.pie(
     labels=tone_counts.index, 
     autopct='%1.1f%%',
     startangle=140,
-    colors=sns.color_palette('RdBu_r'))
+    colors = my_tones,
+)
 plt.title('제품군 색상 톤 비율', fontsize=15)
 plt.show()
 ```
